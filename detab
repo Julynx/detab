@@ -1,0 +1,97 @@
+#!/usr/bin/env python3
+import sys
+
+
+def replace_tab(sentence, tabstop=4):
+    """
+    It replaces all tabs in a string with the adequate number of spaces.
+
+    Args:
+        sentence (str): The string to replace tabs in.
+        tabstop (int, optional): The tab size. Defaults to 4.
+
+    Returns:
+        str: The string with tabs replaced by spaces.
+    """
+    result = str()
+    for character in sentence:
+        if character == '\t':
+            result += ' '
+            while ((len(result) % tabstop) != 0):
+                result += ' '
+        else:
+            result += character
+
+    return result
+
+
+def capture_input_args(usage):
+    """
+    It captures the input arguments for the program.
+
+    Args:
+        usage (str): A help message containing the usage of the program.
+
+    Returns:
+        str, int: The name of the file to process and the tab size.
+    """
+    try:
+        sys.argv[1]
+        filename = sys.argv[1]
+    except IndexError:
+        print(usage)
+        sys.exit(1)
+
+    try:
+        sys.argv[2]
+        try:
+            n_tabs = int(sys.argv[2])
+        except ValueError:
+            print("Invalid tab size: {}".format(sys.argv[2]))
+            print(usage)
+            sys.exit(1)
+    except IndexError:
+        print("No tab size specified, using default of 4.")
+        n_tabs = 4
+
+    try:
+        sys.argv[3]
+        print("Error: Too many arguments.")
+        print(usage)
+        sys.exit(1)
+    except IndexError:
+        pass
+
+    return filename, n_tabs
+
+
+def main():
+    usage = """Usage: detab <filename> [tabsize]"""
+    filename, n_tabs = capture_input_args(usage)
+
+    # We open the file in read mode,
+    # and read the whole file into a list.
+    lines = []
+    try:
+        f = open(filename, 'r')
+        for line in f:
+            lines.append(line)
+        f.close()
+    except FileNotFoundError:
+        print("File '" + filename + "' not found.")
+        sys.exit(1)
+
+    # We replace all tabs in the list with spaces
+    # and write the result to the file.
+    f = open(filename, 'w')
+    for line in lines:
+        untabbed_line = replace_tab(line, n_tabs)
+        f.write(untabbed_line)
+    f.close()
+
+    print('Replaced all tabs in ' + filename
+          + ' with ' + str(n_tabs) + ' spaces.')
+
+
+if __name__ == '__main__':
+    main()
