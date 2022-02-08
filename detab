@@ -89,8 +89,7 @@ def main():
         f.write(untabbed_line)
     f.close()
 
-    print('Replaced all tabs in ' + filename
-          + ' with ' + str(n_tabs) + ' spaces.')
+    print('Replaced all tabs in ' + filename + '.')
 
 
 if __name__ == '__main__':
