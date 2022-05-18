@@ -45,7 +45,7 @@ The program can now be ran from a terminal with the command `detab`.
 ## Usage
 The following command will **REPLACE** all tabs in the specified file with spaces:
 ```
-detab <filename> [tabsize] - Defaults to 4
+detab <filename> [tabsize=4]
 ```
 It has been tested with Python 3.8.10, results may vary if other python versions are used.
 <br>
