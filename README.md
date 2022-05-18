@@ -21,7 +21,7 @@
 <br>
 
 ## Why?
-Spaces are the way to go for most programming languages according to coding style rules. Tabs do not measure the same across the whole document as their length varies according to the position of the character in the line. Their size also depends on the configuration of the text editor used, which makes them inconsistent. However, the tab key can be configured to insert spaces instead of tabs on some editors to save time and keystrokes, which is an option I would recommend.
+Spaces are the way to go for most programming languages according to coding style rules. Tabs do not measure the same across the whole document as their length varies according to the position of the character in the line. Their size also depends on the configuration of the text editor used, which makes them inconsistent. However, the tab key can be configured to insert spaces instead of tabs on some editors to save time and keystrokes, which is an option I recommend.
 
 There are some solutions out there to replace tabs with spaces, but they often only take into account leading tabs and replace them with a fixed amount of spaces. detab goes one step further, allowing you to easily make the transition from tabs to spaces over long and complex files and replacing all of them accurately to maintain the original look of the document.
 <br><br>
