@@ -31,8 +31,6 @@ The following commands will download the latest version of detab from this repos
 and install it in your `/usr/bin/` directory:
 ```
 git clone https://github.com/Julynx/detab
-```
-```
 cd detab
 ```
 ```
